@@ -4,8 +4,11 @@ import Note from "@/models/Note";
 export async function GET() {
   await connectDB();
   const notes = await Note.find().sort({ createdAt: -1 });
-  return Response.json(notes);
+  return Response.json(notes, { status: 200 });
 }
+
+export const dynamic = "force-dynamic";
+
 
 export async function POST(req) {
   await connectDB();
