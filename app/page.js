@@ -36,9 +36,13 @@ export default function Home() {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`/api/notes/${id}`, { method: "DELETE" });
-    fetchNotes();
-  };
+  await fetch(`/api/notes/${id}`, {
+    method: "DELETE",
+  });
+
+  fetchNotes(); // refresh list
+};
+
 
   const handleEdit = (note) => {
     setEditingId(note._id);
