@@ -11,5 +11,5 @@ export async function PUT(req, { params }) {
 export async function DELETE(req, { params }) {
   await connectDB();
   await Note.findByIdAndDelete(params.id);
-  return Response.json({ message: "Note Deleted" });
+  return Response.json({ message: "Deleted" }, { status: 200 });
 }
